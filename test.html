@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centered Gif with Video Background</title>
+    <style>
+        body {
+            position: relative; /* Needed for video positioning */
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Fills the viewport while maintaining aspect ratio */
+            z-index: -1; /* Ensures video appears behind the gif */
+        }
+
+        img {
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 100%; /* Adjust these if needed to constrain gif size */
+        }
+    </style>
+</head>
+<body>
+    <video autoplay muted loop class="video-background">
+        <source src="./matrix.mp4" type="video/mp4">
+    </video>
+    <img src="./method.gif" alt="Centered Gif">
+</body>
+</html>
